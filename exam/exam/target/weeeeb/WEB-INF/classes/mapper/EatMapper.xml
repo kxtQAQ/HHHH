@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.EatMapper" >
+
+    <resultMap id="eatMap" type="entity.Eat">
+        <id column="id" property="id"/>
+        <id column="name" property="name"/>
+        <id column="price" property="price"/>
+        <id column="sort" property="sort"/> <!--与数据库表映射-->
+
+    </resultMap>
+    <select id="selectAll" resultMap="eatMap">  <!--sql语句实现-->
+        select * from eat
+    </select>
+    <delete id="deleteById" >  <!--sql语句实现-->
+        delete from eat where id=#{id}
+    </delete>
+    <update id="updateById" >  <!--sql语句实现-->
+        update Eat set price=#{price},sort=#{sort} where id=#{id}
+    </update>
+    <select id="selectById" resultMap="eatMap">  <!--sql语句实现-->
+        select * from eat where id=#{id}
+    </select>
+</mapper>
